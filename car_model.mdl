@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.42"
+    ComputedModelVersion    "1.43"
     NumModelReferences	    0
     NumTestPointedSignals   0
   }
@@ -25,9 +25,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "oktay"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Nov 23 06:52:16 2010"
-  RTWModifiedTimeStamp	  212395931
-  ModelVersionFormat	  "1.%<AutoIncrement:42>"
+  LastModifiedDate	  "Tue Nov 23 11:40:01 2010"
+  RTWModifiedTimeStamp	  212407293
+  ModelVersionFormat	  "1.%<AutoIncrement:43>"
   ConfigurationManager	  "None"
   SampleTimeColors	  off
   SampleTimeAnnotations	  off
@@ -1185,7 +1185,7 @@ Model {
       MaskIconUnits	      "autoscale"
       System {
 	Name			"Subsystem"
-	Location		[934, 384, 1259, 626]
+	Location		[799, 380, 1124, 622]
 	Open			off
 	ModelBrowserVisibility	off
 	ModelBrowserWidth	200
@@ -1896,7 +1896,7 @@ Stateflow {
       " = X(2);\nr   = X(3);\npsi = X(4); \n\nf_Fx  = u(1);\nf_Rx  = u(2);\ndelta = u(3);\n\n\nbeta = atan(Vy/Vx);\nV ="
       " sqrt(Vx^2 + Vy^2);\n\ns_Fy = (V*sin(beta-delta) + r*l_F*cos(delta))/(V*cos(beta-delta) + r*l_F*sin(delta));\ns_"
       "Ry = (V*sin(beta) - r*l_R)/(V*cos(beta));\n\ns = [s_Fy, s_Ry];"
-      editorLayout	      "100 M4x1[205 227 720 856]"
+      editorLayout	      "100 M4x1[234 143 720 856]"
     }
   }
   junction {
@@ -2038,7 +2038,7 @@ Stateflow {
       "= s(2); \n\n\nf_Fz_out = m*g*l_R*(l_F + l_R);\nf_Rz_out = m*g*l_F*(l_F + l_R);\n\nf_Fy_max = sqrt((mu*f_Fz)^2 - "
       "f_Fx^2);\nf_Ry_max = sqrt((mu*f_Rz)^2 - f_Rx^2);\n\nf_Fy_out = f_Fy_max*sin(C*atan(B*s_Fy)); \nf_Ry_out = f_Ry_m"
       "ax*sin(C*atan(B*s_Ry));\n\nf_F_out = [f_Fy_out, f_Fz_out];\nf_R_out = [f_Ry_out, f_Rz_out];"
-      editorLayout	      "100 M4x1[205 227 720 856]"
+      editorLayout	      "100 M4x1[196 78 720 856]"
     }
   }
   junction {
