@@ -1,4 +1,4 @@
-function [Mayer,Lagrange]=projectCost(solcost);
+function [Mayer,Lagrange]=projectCost(solcost)
 
 t0 = solcost.initial.time;
 x0 = solcost.initial.state;
@@ -9,5 +9,5 @@ x  = solcost.state;
 u  = solcost.control;
 p  = solcost.parameter;
 
-Mayer = zeros(size(t0));
-Lagrange = 1/2*x.^2;
+Mayer = xf(6)^2;
+Lagrange = ones(size(t));

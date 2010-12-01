@@ -18,15 +18,22 @@ fFx = u(:,1);
 fRx = u(:,2);
 delta = u(:,3);
 
-fFy = 
+fFymax = sqrt((CONSTANTS.mu*CONSTANTS.fFz)^2-fFx.^2);
+fRymax = sqrt((CONSTANTS.mu*CONSTANTS.fRz)^2-fRx.^2);
 
-Vxdot = 1/CONSTANTS.m*(fFx*cos(delta) - fFy*sin(delta) + fRx) - Vy*r;
-Vydot =
-psidot =
-rdot =
-Xdot =
-Ydot =
+sFy = ((Vy+r*CONSTANTS.lF).*cos(delta)-Vx.*sin(delta)) ./ ...
+        ((Vy+r*CONSTANTS.lF).*sin(delta)+Vx.*cos(delta));
+sRy = (Vy-r*CONSTANTS.lR)./Vx; 
+    
+fFy = fFymax.*sin(CONSTANTS.C*atan(CONSTANTS.B*sFy));
+fRy = fRymax.*sin(CONSTANTS.C*atan(CONSTANTS.B*sRy));
 
-
+Vxdot = 1/CONSTANTS.m*(fFx.*cos(delta) - fFy.*sin(delta) + fRx) - Vy.*r;
+Vydot = 1/CONSTANTS.m*(fFx.*sin(delta) - fFy.*cos(delta) + fRy) - Vx.*r;
+psidot = r;
+rdot = 1/CONSTANTS.Iz*(CONSTANTS.lF*fFy.*cos(delta) + ...
+    CONSTANTS.lF*fFx.*sin(delta) - fRy*CONSTANTS.lR);
+Xdot = Vx.*cos(psi) - Vy.*sin(psi);
+Ydot = Vx.*sin(psi) + Vy.*cos(psi);
 
 daeout = [Vxdot Vydot psidot rdot Xdot Ydot];
