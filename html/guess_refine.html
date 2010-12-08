@@ -1,0 +1,151 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML is auto-generated from an M-file.
+To make changes, update the M-file and republish this document.
+      --><title>guess_refine</title><meta name="generator" content="MATLAB 7.10"><meta name="date" content="2010-12-06"><meta name="m-file" content="guess_refine"><style type="text/css">
+
+body {
+  background-color: white;
+  margin:10px;
+}
+
+h1 {
+  color: #990000; 
+  font-size: x-large;
+}
+
+h2 {
+  color: #990000;
+  font-size: medium;
+}
+
+/* Make the text shrink to fit narrow windows, but not stretch too far in 
+wide windows. */ 
+p,h1,h2,div.content div {
+  max-width: 600px;
+  /* Hack for IE6 */
+  width: auto !important; width: 600px;
+}
+
+pre.codeinput {
+  background: #EEEEEE;
+  padding: 10px;
+}
+@media print {
+  pre.codeinput {word-wrap:break-word; width:100%;}
+} 
+
+span.keyword {color: #0000FF}
+span.comment {color: #228B22}
+span.string {color: #A020F0}
+span.untermstring {color: #B20000}
+span.syscmd {color: #B28C00}
+
+pre.codeoutput {
+  color: #666666;
+  padding: 10px;
+}
+
+pre.error {
+  color: red;
+}
+
+p.footer {
+  text-align: right;
+  font-size: xx-small;
+  font-weight: lighter;
+  font-style: italic;
+  color: gray;
+}
+
+  </style></head><body><div class="content"><pre class="codeinput">param.time  = [      1.0085;      1.5075;    1.7;      3.0 ];
+param.Vx    = [     18.079;      19.465;    20.0;       15];
+param.Vy    = [     -5.9322;     -8.8678;  -10.0;       -8];
+param.r     = [      3.7273;      5.5718;   2*pi;       0.2];
+param.psi   = [      0.0;         0.0;       0.0;      pi/2];
+param.xi    = [      5.9322;      8.8678;   10.0;       30 ];
+param.yi    = [     -1.7797;     -2.6603;   -3.0;        -2];
+
+param.f_Fx  = [ -12510.0;     -3482.2;        -3482.2;    0; ];
+param.f_Rx  = [   3942.2;     16356.0;      16356.0; CONSTANTS.f_Rx_max];
+param.delta = [     -0.31948;     -0.088926;    0; -45*pi/180];
+
+param.time_tf_min  = 0;<span class="comment">% 0;</span>
+param.time_tf_max  = 4;<span class="comment">% 2;</span>
+
+param.Vx_tf_min    = 0; <span class="comment">% 0;</span>
+param.Vx_tf_max    = 100*10/36; <span class="comment">% 100*10/36;</span>
+
+param.Vy_tf_min    = 0; <span class="comment">% 0;</span>
+param.Vy_tf_max    = -100*10/36; <span class="comment">% -100*10/36;</span>
+
+param.r_tf_min     = 0; <span class="comment">% 0;</span>
+param.r_tf_max     = 2*pi; <span class="comment">% 2*pi;</span>
+
+param.psi_tf_min   = pi/2;  <span class="comment">% 0;</span>
+param.psi_tf_max   = pi/2-0.1; <span class="comment">% 10*pi/180;</span>
+
+param.xi_tf_min    = 20; <span class="comment">% 8;</span>
+param.xi_tf_max    = 32; <span class="comment">% 15;</span>
+
+param.yi_tf_min    = -1;<span class="comment">% -2;</span>
+param.yi_tf_max    = -2;<span class="comment">% -4;</span>
+
+param.f_Fx_tf_min  = CONSTANTS.f_Fx_min; <span class="comment">% CONSTANTS.f_Fx_min;</span>
+param.f_Fx_tf_max  = 0; <span class="comment">% 0;</span>
+
+param.f_Rx_tf_min  = CONSTANTS.f_Rx_min; <span class="comment">% CONSTANTS.f_Rx_min;</span>
+param.f_Rx_tf_max  = CONSTANTS.f_Rx_max; <span class="comment">% CONSTANTS.f_Rx_max;</span>
+
+param.delta_tf_min = -45*pi/80; <span class="comment">% 0;</span>
+param.delta_tf_max = -30*pi/80;<span class="comment">% 10*pi/180;</span>
+</pre><p class="footer"><br>
+      Published with MATLAB&reg; 7.10<br></p></div><!--
+##### SOURCE BEGIN #####
+param.time  = [      1.0085;      1.5075;    1.7;      3.0 ];
+param.Vx    = [     18.079;      19.465;    20.0;       15];
+param.Vy    = [     -5.9322;     -8.8678;  -10.0;       -8];
+param.r     = [      3.7273;      5.5718;   2*pi;       0.2];
+param.psi   = [      0.0;         0.0;       0.0;      pi/2];
+param.xi    = [      5.9322;      8.8678;   10.0;       30 ];
+param.yi    = [     -1.7797;     -2.6603;   -3.0;        -2];
+
+param.f_Fx  = [ -12510.0;     -3482.2;        -3482.2;    0; ];
+param.f_Rx  = [   3942.2;     16356.0;      16356.0; CONSTANTS.f_Rx_max];
+param.delta = [     -0.31948;     -0.088926;    0; -45*pi/180];
+
+param.time_tf_min  = 0;% 0;
+param.time_tf_max  = 4;% 2;
+
+param.Vx_tf_min    = 0; % 0;
+param.Vx_tf_max    = 100*10/36; % 100*10/36;
+
+param.Vy_tf_min    = 0; % 0;
+param.Vy_tf_max    = -100*10/36; % -100*10/36;
+
+param.r_tf_min     = 0; % 0;
+param.r_tf_max     = 2*pi; % 2*pi;
+
+param.psi_tf_min   = pi/2;  % 0;
+param.psi_tf_max   = pi/2-0.1; % 10*pi/180;
+
+param.xi_tf_min    = 20; % 8;
+param.xi_tf_max    = 32; % 15;
+
+param.yi_tf_min    = -1;% -2;
+param.yi_tf_max    = -2;% -4;
+
+param.f_Fx_tf_min  = CONSTANTS.f_Fx_min; % CONSTANTS.f_Fx_min;
+param.f_Fx_tf_max  = 0; % 0;
+ 
+param.f_Rx_tf_min  = CONSTANTS.f_Rx_min; % CONSTANTS.f_Rx_min;
+param.f_Rx_tf_max  = CONSTANTS.f_Rx_max; % CONSTANTS.f_Rx_max;
+
+param.delta_tf_min = -45*pi/80; % 0;
+param.delta_tf_max = -30*pi/80;% 10*pi/180;
+##### SOURCE END #####
+--></body></html>
