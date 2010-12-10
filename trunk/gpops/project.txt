@@ -1,6 +1,16 @@
-------------------------------------------------------------------------------------
-GPOPS Version 3.0 alpha:: A MATLAB Implementation of the Gauss Pseudospectral Method
-------------------------------------------------------------------------------------
+
+
+
+
+   ____ ______   ____ ______  ______
+  / ___\\____ \ /  _ \\____ \/  ___/
+ / /_/  >  |_> >  <_> )  |_> >___ \ 
+ \___  /|   __/ \____/|   __/____  >
+/_____/ |__|          |__|       \/ 
+
+-----------------------------------------------------------------------------------
+GPOPS Version 2.1 beta: A MATLAB Implementation of the Gauss Pseudospectral Method
+-----------------------------------------------------------------------------------
 
 
 %------------------------------------------------------------------%
@@ -138,33 +148,35 @@ Information in Phase 1
 
 State 	1
 	 Start of Phase:    	15.2778 <= State 1 <= 15.2778
-	 During Phase:      	0 <= State 1 <= 22.9167
-	 Terminus of Phase: 	0 <= State 1 <= 22.9167
+	 During Phase:      	-22.9167 <= State 1 <= 22.9167
+	 Terminus of Phase: 	0 <= State 1 <= 0
 State 	2
 	 Start of Phase:    	0 <= State 2 <= 0
-	 During Phase:      	-20 <= State 2 <= 20
-	 Terminus of Phase: 	0 <= State 2 <= 0
+	 During Phase:      	-22.9167 <= State 2 <= 22.9167
+	 Terminus of Phase: 	-22.9167 <= State 2 <= 22.9167
 State 	3
 	 Start of Phase:    	0 <= State 3 <= 0
-	 During Phase:      	-1.5708 <= State 3 <= 2.3562
+	 During Phase:      	-1.0472 <= State 3 <= 2.0944
 	 Terminus of Phase: 	1.5708 <= State 3 <= 1.5708
 State 	4
 	 Start of Phase:    	0 <= State 4 <= 0
-	 During Phase:      	-10 <= State 4 <= 10
+	 During Phase:      	-3 <= State 4 <= 10
 	 Terminus of Phase: 	0 <= State 4 <= 0
 State 	5
 	 Start of Phase:    	0 <= State 5 <= 0
-	 During Phase:      	-10 <= State 5 <= 2000
-	 Terminus of Phase: 	-10 <= State 5 <= 2000
+	 During Phase:      	-10 <= State 5 <= 300
+	 Terminus of Phase: 	-10 <= State 5 <= 300
 State 	6
 	 Start of Phase:    	0 <= State 6 <= 0
-	 During Phase:      	-50 <= State 6 <= 50
-	 Terminus of Phase: 	-50 <= State 6 <= 50
+	 During Phase:      	-20 <= State 6 <= 50
+	 Terminus of Phase: 	-20 <= State 6 <= 50
 
 Control 	1
-	 During Phase:    	-1 <= Control 1 <= 1
+	 During Phase:    	-4213.2274 <= Control 1 <= 0
 Control 	2
-	 During Phase:    	-0.7854 <= Control 2 <= 0.7854
+	 During Phase:    	-2896.5938 <= Control 2 <= 2896.5938
+Control 	3
+	 During Phase:    	-0.7854 <= Control 3 <= 0.7854
 
 No Parameters in Phase 1
 

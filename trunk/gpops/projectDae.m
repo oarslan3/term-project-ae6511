@@ -14,10 +14,14 @@ r = x(:,4);
 X = x(:,5);
 Y = x(:,6);
 
-fFx = u(:,1)*CONSTANTS.fFxmax;
-fFx (find(fFx > 0)) = 0;
-fRx = u(:,1)*CONSTANTS.fRxmax;
-delta = u(:,2);
+fFx = u(:,1);
+fRx = u(:,2);
+delta = u(:,3);
+
+% VF = sign(Vx.*cos(delta)+Vy.*sin(delta));
+% VR = sign(Vx);
+% fFx(fFx < 0) = fFx(fFx < 0) .* VF(fFx < 0);
+% fRx(fRx < 0) = fRx(fRx < 0) .* VR(fRx < 0);
 
 fFymax = sqrt((CONSTANTS.mu*CONSTANTS.fFz)^2-fFx.^2);
 fRymax = sqrt((CONSTANTS.mu*CONSTANTS.fRz)^2-fRx.^2);
