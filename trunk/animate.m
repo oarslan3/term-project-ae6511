@@ -3,34 +3,34 @@ function animate(solution, case_param, movie_name)
 
     disp('Loading...');
     
-    [sim_time y] = ode45_sim(case_param, solution.control, solution.time);
+    %[sim_time y] = ode45_sim(case_param, solution.control, solution.time);
 
-    newres = size(y,1);
+    newres = size(solution.state,1);
     oldres = size(solution.control,1);
     finalres = 300;
     
-    final_time = linspace(0,sim_time(end),finalres);
+    final_time = linspace(0,solution.time(end),finalres);
     
-    temp  = zeros(newres,3);
+%    temp  = zeros(newres,3);
     
     % Extrapolate all the control values to the simulated resolution
-    for i=1:newres
-        temp(i,1)  = interp1((0:oldres-1)',solution.control(:,1),(i-1)*(oldres-1)/(newres-1));
-        temp(i,2)  = interp1((0:oldres-1)',solution.control(:,2),(i-1)*(oldres-1)/(newres-1));
-        temp(i,3) = interp1((0:oldres-1)',solution.control(:,3),(i-1)*(oldres-1)/(newres-1));
-    end
+%     for i=1:newres
+%         temp(i,1)  = interp1((0:oldres-1)',solution.control(:,1),(i-1)*(oldres-1)/(newres-1));
+%         temp(i,2)  = interp1((0:oldres-1)',solution.control(:,2),(i-1)*(oldres-1)/(newres-1));
+%         temp(i,3) = interp1((0:oldres-1)',solution.control(:,3),(i-1)*(oldres-1)/(newres-1));
+%     end
 
     i = 1;
     for t = final_time
-        Vx(i)    = interp1(sim_time,y(:,1),t);
-        Vy(i)    = interp1(sim_time,y(:,2),t);
-        r(i)     = interp1(sim_time,y(:,3),t);
-        psi(i)   = interp1(sim_time,y(:,4),t);
-        xi(i)    = interp1(sim_time,y(:,5),t);
-        yi(i)    = interp1(sim_time,y(:,6),t);
-        f_Fx(i)  = interp1(sim_time,temp(:,1),t);
-        f_Rx(i)  = interp1(sim_time,temp(:,2),t);
-        delta(i) = interp1(sim_time,temp(:,3),t);
+        Vx(i)    = interp1( solution.time,solution.state(:,1),t);
+        Vy(i)    = interp1( solution.time,solution.state(:,2),t);
+        r(i)     = interp1( solution.time,solution.state(:,3),t);
+        psi(i)   = interp1( solution.time,solution.state(:,4),t);
+        xi(i)    = interp1( solution.time,solution.state(:,5),t);
+        yi(i)    = interp1( solution.time,solution.state(:,6),t);
+        f_Fx(i)  = interp1( solution.time,solution.control(:,1),t);
+        f_Rx(i)  = interp1( solution.time,solution.control(:,2),t);
+        delta(i) = interp1( solution.time,solution.control(:,3),t);
         i = i + 1;
     end
     
