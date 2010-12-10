@@ -166,7 +166,9 @@ function [solution] = ManeuverMain(case_param)
     setup.linkages = [];
     setup.direction = 'increasing';
     %setup.derivatives = 'automatic-intlab';  %Intlab is the fastest
-    setup.derivatives = 'automatic';  %Intlab is the fastest
+    %setup.derivatives = 'automatic';  %Intlab is the fastest
+    setup.derivatives = 'complex';  %Intlab is the fastest
+    
     setup.controlinterp = 'lagrange';
     setup.autoscale = 'on';   %If you need autoscaling turn on.
     setup.solver = 'snopt';   %Use SNOPT as IPOPT not coded for Radau yet
@@ -195,7 +197,7 @@ function [solution] = ManeuverMain(case_param)
     
     global car_specs;
     
-    sample = 30;
+    sample = 10;
     plot_results(sample, car_specs, output.solution);
     
     solution = output.solution;
