@@ -39,9 +39,9 @@
 \newpage
 \input{../2section/sec2.tex}
 
-%\input{../3section/sec3.tex}
+\input{../3section/sec3.tex}
 
-%\input{../conclusion/conc.tex}
+\input{../conclusion/conc.tex}
 
 %\bibliography{../references/ref}
 

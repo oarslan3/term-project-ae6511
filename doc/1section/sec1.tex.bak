@@ -45,10 +45,5 @@ Initial conditions:
 
 $x_{1}(0) = 0$, $x_{2}(0) = 55$, $x_{3} = 0$, $x_{4} = 0$, $x_{5} = 0$, $x_{6} = 0$
 
-Final conditions:
-
-$x_{1}(0) = 0$, $x_{2}(0) = 55$, $x_{3} = 0$, $x_{4} = 0$, $x_{5} = 0$, $x_{6} = 0$
-
-
 $H = 1 + \lambda_{1}\{x_{2}\} + \lambda_{2}\{ \frac{1}{m} [u_{1}cos(u_{3})-f_{Fy}sin(u_{3})+u_{2}] + x_{4}x_{5} \} + \lambda_{3}\{x_{4}\} + \lambda_{4}\{ \frac{1}{m} [u_{1}sin(u_{3})+f_{Fy}cos(u_{3})+f_{Ry}] - x_{2}x_{5} \} + \lambda_{5}\{ \frac{1}{I_{z}} [f_{Fy}cos(u_{3})+u_{1}sin(u_{3})]l_{F} + \frac{1}{I_{z}}f_{Ry}l_{R} \} + \lambda_{6}\{ x_{5} \}$
 

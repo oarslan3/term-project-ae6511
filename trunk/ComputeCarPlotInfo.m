@@ -216,7 +216,7 @@ function output = ComputeCarPlotInfo(car_specs, position, orientation, f_F, f_R,
             point_head = inertialCoordsXForces (k,3:4);
             
             if (norm(point_head - point_tail )> 0.01) 
-                p = ARROW(point_tail, point_head, 6*scale, 'BaseAngle',60);
+                p = ARROW(point_tail, point_head, scale, 'BaseAngle',60);
                 set(p, 'FaceColor', color);
                 set(p, 'EdgeColor', color);
                 set(p, 'LineWidth', 2.5*scale);
@@ -227,7 +227,7 @@ function output = ComputeCarPlotInfo(car_specs, position, orientation, f_F, f_R,
             point_head = inertialCoordsYForces (k,3:4);
             
             if (norm(point_head - point_tail )> 0.01) 
-                p = ARROW(point_tail, point_head, 6*scale, 'BaseAngle',60);
+                p = ARROW(point_tail, point_head, scale, 'BaseAngle',60);
                 set(p, 'FaceColor', 'y');
                 set(p, 'EdgeColor', 'y');
                 set(p, 'LineWidth', 2.5*scale);

@@ -98,9 +98,8 @@ function dae = ManeuverDae(solution)
             %    f_Fx(index) = -mu*f_Fz;
             %end
         %end
-        f_Fx
-        Vxw
-        f_Fx = f_Fx.*sign(Vxw)
+        
+        f_Fx = f_Fx.*sign(Vxw);
 
         %if ( f_Rx(k,1) > mu*f_Rz)
         %    f_Rx(k,1) =  mu*f_Rz;
@@ -168,10 +167,7 @@ function dae = ManeuverDae(solution)
             %delta(k,1) = 45*pi/180;
             
             if isa(delta,'ad')
-                temp_value = delta.value;
-                
-                temp_value (find( temp_value > 45*pi/180)) = 45*pi/180;
-                % delta.value( find( delta.value > 45*pi/180) ) = 45*pi/180;
+                delta.value( find( delta.value > 45*pi/180) ) = 45*pi/180;
             else
                 delta( find( delta > 45*pi/180) ) = 45*pi/180;
             end
@@ -185,10 +181,7 @@ function dae = ManeuverDae(solution)
             % delta(k,1) = -45*pi/180;
             
             if isa(delta,'ad')
-                temp_value = delta.value;
-                
-                temp_value (find( temp_value < -45*pi/180)) = -45*pi/180;
-                %delta.value( find( delta.value < -45*pi/180) ) = -45*pi/180;
+                delta.value( find( delta.value < -45*pi/180) ) = -45*pi/180;
             else
                  delta( find( delta < -45*pi/180) ) = -45*pi/180;
             end

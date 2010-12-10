@@ -57,8 +57,8 @@ iphase = 1;
     
 limits(iphase).nodes            = 61;
 limits(iphase).segtimes = [];
-limits(iphase).intervals = [1];
-limits(iphase).nodesperint = [15];
+    limits(iphase).intervals = [1];
+    limits(iphase).nodesperint = [15];
 
 limits(iphase).time.min         = [t0min tfmin];
 limits(iphase).time.max         = [t0max tfmax];

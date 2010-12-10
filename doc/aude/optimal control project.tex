@@ -1,4 +1,5 @@
-\section{Analytical Solutions}
+\documentclass{article}
+\begin{document}
 
 1. Let's formulate this problem as an optimal control problem. \\
 
@@ -60,7 +61,7 @@ $|f_{\star x}| \leq \mu \cdot f_{\star z} = f^{max}_{\star x}, \quad \star = F,R
 
 2. Assuming the rear-wheel driven (RWD) vehicle, let us derive the necessary conditions for this optimization problem. \\
 
-For a rear-drive vehicle,
+For a rear-drive vehicle, 
 $f_{F_{x}} = 0$ when driving and $f_{F_{x}} < 0$ when braking, while $f_{R_{x}}$ can take both positive (when driving) and negative (when braking) values.\\
 Ideally, $f_{F_{x}} <0$ if and only if $f_{R_{x}} < 0$.\\
 
@@ -70,7 +71,7 @@ $H(x,\lambda,u,t) = L(x,u,t) + \lambda^T \cdot f(x,u,t) + \mu^T \cdot C(x,u,t)$\
 
 $C(x,u,t)$ represents the inputs constraints. \\
 
-$C_{1}(x,u,t) = - f_{F_{x}} \cdot f_{R_{x}} \leq 0$\\
+$C_{1}(x,u,t) = - f_{F_{x}} \cdot f_{R_{x}} < 0$\\
 
 $C_{2}(x,u,t) = (\sqrt{\delta^2} - \delta_{max}) \leq 0$\\
 
@@ -81,14 +82,12 @@ $C_{4}(x,u,t) = (\sqrt{f^2_{F_{x}}} - f^{max}_{F_{x}}) \leq 0$\\
 $H(x(t),u(t),t) = 1 + \lambda_{x} \cdot V_{x} + \lambda_{y} \cdot V_{y} +\\ \lambda_{V_{x}} \cdot  \frac{1}{m} \cdot [(f_{F_{x}} \cdot cos(\delta) - f_{F_{y}} \cdot sin(\delta) + f_{R_{x}}) - V_{} \cdot r] +\\
  \lambda_{V_{y}} \cdot[ \frac{1}{m} \cdot (f_{F_{x}} \cdot sin(\delta) + f_{F_{y}} \cdot cos(\delta) + f_{R_{y}}) - V_{x} \cdot r] + \\
 \lambda_{r} \cdot [ \frac{1}{I_{z}} \cdot (f_{F_{y}} \cdot cos(\delta) + f_{F_{x}} \cdot sin(\delta)) \cdot l_{F} - f_{R_{y}} \cdot l_{R}] + \\
-\lambda_{\psi} \cdot r + \mu_{1} \cdot(- f_{F_{x}} \cdot f_{R_{x}}) + \mu_{2} \cdot (\sqrt{\delta^2} - \delta_{max}) + \\
-\mu_{3} \cdot (\sqrt{f^2_{R_{x}} - f^{max}_{R_{x}}}) +  \mu_{4} \cdot (\sqrt{f^2_{F_{x}} - f^{max}_{F_{x}}})$  \\
+\lambda_{\psi} \cdot r$ + \mu_{1} \cdot(- f_{F_{x}} \cdot f_{R_{x}}) + \mu_{2} \cdot (\sqrt{\delta^2} - \delta_{max}) + \\
+\mu_{3} \cdot (\sqrt{f^2_{R_{x}} - f^{max}_{R_{x}}}) +  \mu_{4} \cdot (\sqrt{f^2_{F_{x}} - f^{max}_{F_{x}}})  \\
 
 The co-state equations are the following : \\
 
-\begin{equation}
-\dot{\lambda_{x}} = - \frac{\partial H}{\partial x} = 0
-\end{equation}
+$\dot{\lambda_{x}} = - \frac{\partial H}{\partial x} = 0$\\
 
 $\dot{\lambda_{y}} = - \frac{\partial H}{\partial y} = 0$\\
 
@@ -138,7 +137,7 @@ $\frac{\partial H}{\partial f_{F_{x}}} = 0$ that is \\
 $\frac{\lambda_{V_{x}}}{m} \cdot cos(\delta) + \frac{\lambda_{V_{y}}}{m} \cdot sin(\delta) + \frac{\lambda_{r}}{I_{z}} \cdot sin(\delta) - \mu_{1} \cdot f_{R_{x}}- \mu_{4} \cdot \frac{f_{F_{x}}}{\sqrt{f_{F_{x}}^2}} = 0$\\
 
 
-$\frac{\partial H}{\partial f_{R_{x}}} = 0$ that is\\
+$\frac{\partial H}{\partial f_{R_{x}}} = 0$ that is\\ 
 
 $\frac{\lambda_{V_{x}}}{m} - \mu{1} \cdot f_{F_{x}} -\mu_{3} \cdot \frac{f_{R_{x}}}{\sqrt{f_{R_{x}}^2}} = 0$\\
 
@@ -151,4 +150,6 @@ This is not solvable analytically. We tried finding u for higher time derivative
 $(-1)^m \cdot \frac{\partial}{\partial u}\cdot (\frac{d^{2m}}{dt^{2m}} \cdot H_{u}(x,u,\lambda,\mu,t)) \geq 0$ , \\
 
 but the equations became very complex and the control still was not appearing explicitly. \\
-Therefore we wrote the equations into Mathematica, however this led to even more complex equations. This justifies the fact that we are using GPOPS to try and solve the problem, because the analytical approach is simply too complicated.\\ 
+Therefore we wrote the equations into Mathematica, however this led to even more complex equations. This justifies the fact that we are using GPOPS to try and solve the problem, because the analytical approach is simply too complicated.\\
+
+\end{document}
