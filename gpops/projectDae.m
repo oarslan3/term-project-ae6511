@@ -15,7 +15,7 @@ X = x(:,5);
 Y = x(:,6);
 
 fFx = u(:,1)*CONSTANTS.fFxmax;
-fFx(fFx > 0) = 0;
+fFx (find(fFx > 0)) = 0;
 fRx = u(:,1)*CONSTANTS.fRxmax;
 delta = u(:,2);
 
